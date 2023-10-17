@@ -1,14 +1,11 @@
 extends CharacterBody2D
 
-
+# movement variables
 var speed = 200
 var rotation_speed = 2.5
-
 var rotation_dir = 0
 
-func _ready():
-	pass
-	
+
 func get_input():
 	rotation_dir = 0
 	velocity = Vector2.ZERO

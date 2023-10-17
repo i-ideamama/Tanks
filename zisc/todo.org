@@ -3,8 +3,10 @@
 *** DONE see gameplay 
 *** DONE see how to use git
 *** TODO bullet shooting
-*** TODO tilemap
-*** TODO barrel movement
+*** TODO tilemap ground
+*** TODO tilemap wall
+*** TODO bulled rebounding 
+*** DONE barrel movement
 *** 
 *** 
 *** 
