@@ -1,6 +1,10 @@
 
-*** TODO tank movement
-*** TODO see gameplay 
+*** DONE playr movement
+*** DONE see gameplay 
+*** DONE see how to use git
+*** TODO bullet shooting
+*** TODO tilemap
+*** TODO barrel movement
 *** 
 *** 
 *** 
@@ -15,6 +19,15 @@
 *** 
 *** 
 *** 
-*** 
-*** 
-*** 
+
+1. https://www.youtube.com/watch?v=tX9yzjigV1k
+
+2. z
+
+3. 
+
+4. 
+
+5. 
+
+6. 
