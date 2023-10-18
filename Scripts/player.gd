@@ -7,6 +7,7 @@ var rotation_dir = 0
 
 # preload scenes
 var bullet = load("res://Scenes/bullet.tscn")
+var explosion = load("res://Scenes/explosion.tscn")
 
 func get_input():
 	rotation_dir = 0
@@ -32,11 +33,16 @@ func _physics_process(delta):
 	$Barrel.look_at(get_global_mouse_position())
 
 func shoot():
+	var pos = Vector2(60,0)
+	# bullet
 	var b = bullet.instantiate()
-	b.position = Vector2(60,0)
+	b.position = pos
 	var direction_to_mouse = self.global_position.direction_to(get_global_mouse_position()).normalized()
-	print(direction_to_mouse )
 	$Barrel.add_child(b)
-	
 	b.direction = direction_to_mouse
+	# explosion
+	var e = explosion.instantiate()
+	e.position = pos
+	e.emitting = true
+	$Barrel.add_child(e)
 	
