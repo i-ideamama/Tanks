@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://y0kthjiuc1vw"]
 
-[ext_resource type="Texture2D" uid="uid://dfjudti1lkeg0" path="res://Flame.png" id="1_s0ppy"]
+[ext_resource type="Texture2D" uid="uid://cgtgt41ucnyq1" path="res://Assets/SFX/Flame.png" id="1_xoh4o"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rvqfv"]
 blend_mode = 1
@@ -51,7 +51,7 @@ material = SubResource("CanvasItemMaterial_rvqfv")
 emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_ds5ya")
-texture = ExtResource("1_s0ppy")
+texture = ExtResource("1_xoh4o")
 one_shot = true
 explosiveness = 0.9
 randomness = 0.3
