@@ -5,6 +5,8 @@ var speed = 200
 var rotation_speed = 2.5
 var rotation_dir = 0
 
+# preload scenes
+var bullet = load("res://Scenes/bullet.tscn")
 
 func get_input():
 	rotation_dir = 0
@@ -17,6 +19,8 @@ func get_input():
 		velocity -= transform.y * speed
 	if Input.is_action_pressed('up'):
 		velocity += transform.y * speed
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 
 func _physics_process(delta):
 	# movement
@@ -26,4 +30,13 @@ func _physics_process(delta):
 	
 	# barrel control
 	$Barrel.look_at(get_global_mouse_position())
+
+func shoot():
+	var b = bullet.instantiate()
+	b.position = Vector2(60,0)
+	var direction_to_mouse = self.global_position.direction_to(get_global_mouse_position()).normalized()
+	print(direction_to_mouse )
+	$Barrel.add_child(b)
+	
+	b.direction = direction_to_mouse
 	
