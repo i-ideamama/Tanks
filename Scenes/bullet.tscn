@@ -8,7 +8,6 @@ size = Vector2(22.9999, 38)
 
 [node name="Bullet" type="CharacterBody2D"]
 rotation = 1.5708
-motion_mode = 1
 script = ExtResource("1_6p7h3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
