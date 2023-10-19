@@ -24,3 +24,6 @@ texture = ExtResource("1_bddqf")
 texture = ExtResource("3_1fdhx")
 centered = false
 offset = Vector2(-12, -12)
+
+[node name="BulletSpawn" type="Area2D" parent="Barrel"]
+position = Vector2(57, 0)

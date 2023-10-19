@@ -36,10 +36,12 @@ func shoot():
 	var pos = Vector2(60,0)
 	# bullet
 	var b = bullet.instantiate()
-	b.position = pos
+	get_parent().add_child(b)
+	b.global_position = $Barrel/BulletSpawn.global_position
 	var direction_to_mouse = self.global_position.direction_to(get_global_mouse_position()).normalized()
-	$Barrel.add_child(b)
 	b.direction = direction_to_mouse
+	b.init()
+
 	# explosion
 	var e = explosion.instantiate()
 	e.position = pos

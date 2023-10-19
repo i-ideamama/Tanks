@@ -1,14 +1,16 @@
-extends Area2D
+extends CharacterBody2D
 
-var speed = 30
-var direction = Vector2.ZERO
-var velocity = Vector2.ZERO
+var speed = 3000
+var direction
 
 func _ready():
-	velocity  = direction * speed
+	self.add_collision_exception_with(get_parent().get_node("Player"))
+
+func init():
+	self.direction=direction
+	velocity = speed * direction
+
 
 func _physics_process(_delta):
-	velocity  = direction * speed
-	global_position+=velocity
-
+	move_and_slide()
 
