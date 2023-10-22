@@ -8,6 +8,9 @@ var max_bounce_count=5
 func _ready():
 	self.add_collision_exception_with(get_parent().get_node("Player"))
 
+func init():
+	var angle = get_angle_to(dir)
+	self.rotation+=angle
 
 func _physics_process(_delta):
 	var v = move_and_collide(speed*dir)
