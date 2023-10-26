@@ -7,6 +7,7 @@ var max_bounce_count=5
 
 func _ready():
 	self.add_collision_exception_with(get_parent().get_node("Enemy"))
+	self.add_collision_exception_with(get_parent().get_node("Player"))
 
 func init():
 	var angle = get_angle_to(dir)

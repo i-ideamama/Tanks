@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://3thp8fg2bjjd"]
+[gd_scene load_steps=6 format=3 uid="uid://3thp8fg2bjjd"]
 
 [ext_resource type="Texture2D" uid="uid://dy1kcb225380x" path="res://Assets/Tanks/tankBlue_outline.png" id="1_bddqf"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_o8ymx"]
@@ -7,7 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhkfi"]
 size = Vector2(81, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55tjv"]
+size = Vector2(85, 80)
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_o8ymx")
 metadata/_edit_vertical_guides_ = [48.0]
 metadata/_edit_horizontal_guides_ = [0.0]
@@ -27,3 +31,12 @@ offset = Vector2(-12, -12)
 
 [node name="BulletSpawn" type="Marker2D" parent="Barrel"]
 position = Vector2(58, -1)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_55tjv")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

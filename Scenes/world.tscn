@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnwppfb11b6pn"]
+[gd_scene load_steps=16 format=3 uid="uid://cnwppfb11b6pn"]
 
 [ext_resource type="Texture2D" uid="uid://dojfgmwgvwjuw" path="res://Assets/Environment/ground_tiles.png" id="1_8mp0y"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_bebp4"]
 [ext_resource type="PackedScene" uid="uid://3thp8fg2bjjd" path="res://Scenes/player.tscn" id="1_q425r"]
 [ext_resource type="Texture2D" uid="uid://c6f7puww6d8s4" path="res://Assets/Environment/obstacle_tiles.png" id="2_rk4ha"]
 [ext_resource type="Texture2D" uid="uid://hcrrwijh5v0s" path="res://Assets/Obstacles/crate.png" id="3_cnjtj"]
 [ext_resource type="PackedScene" uid="uid://0n0mx1m3jgxf" path="res://Scenes/enemy.tscn" id="5_x3bx4"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="6_y1k13"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r3abf"]
 vertices = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -97,8 +99,7 @@ sources/2 = SubResource("TileSetAtlasSource_yjkkw")
 sources/3 = SubResource("TileSetAtlasSource_jehpk")
 
 [node name="World" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [808.0]
-metadata/_edit_vertical_guides_ = [1496.0]
+script = ExtResource("1_bebp4")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(240, 67)
@@ -121,3 +122,7 @@ up_direction = Vector2(-1, 0)
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_x3bx4")]
 position = Vector2(1072, 504)
 player = NodePath("../Player")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(871, 508)
+script = ExtResource("6_y1k13")

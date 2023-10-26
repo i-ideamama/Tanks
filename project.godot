@@ -15,6 +15,12 @@ run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
 [input]
 
 right={
@@ -47,3 +53,4 @@ shoot={
 [layer_names]
 
 2d_physics/layer_2="player_bullet"
+2d_physics/layer_3="enemy_bullet"

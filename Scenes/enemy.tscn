@@ -41,6 +41,7 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(3.5, 0)

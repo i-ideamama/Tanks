@@ -11,6 +11,7 @@ radius = 8.0
 
 [node name="Eullet" type="CharacterBody2D"]
 rotation = 1.5708
+collision_layer = 4
 script = ExtResource("1_6bwbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -49,3 +49,6 @@ func shoot():
 	e.emitting = true
 	$Barrel.add_child(e)
 	
+func _on_hit_box_body_entered(body):
+	if ("Eullet" in body.name):
+		get_parent().apply_cam_shake()

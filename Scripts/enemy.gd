@@ -52,9 +52,6 @@ func dir_change(point):
 func adj_dir():
 	self.look_at(navigation_agent.get_next_path_position())
 	self.rotate(-PI/2)
-	#var tween
-	#tween.tween_property(self, "rotation", tween_duration)
-
 
 
 func _on_hit_box_body_entered(body):
