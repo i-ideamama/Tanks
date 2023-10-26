@@ -2,14 +2,14 @@
 *** DONE playr movement
 *** DONE see gameplay 
 *** DONE see how to use git
-*** TODO bullet shooting
-*** TODO tilemap ground
-*** TODO tilemap wall
-*** TODO bulled rebounding 
+*** DONE bullet shooting
+*** DONE tilemap ground
+*** DONE tilemap wall
+*** DONE bulled rebounding 
 *** DONE barrel movement
-*** 
-*** 
-*** 
+*** TODO smoothen movement 
+*** TODO better walls
+*** TODO tank trails
 *** 
 *** 
 *** 
@@ -23,13 +23,3 @@
 *** 
 
 1. https://www.youtube.com/watch?v=tX9yzjigV1k
-
-2. z
-
-3. 
-
-4. 
-
-5. 
-
-6. 

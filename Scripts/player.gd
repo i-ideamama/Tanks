@@ -37,6 +37,7 @@ func shoot():
 	# bullet
 	var b = bullet.instantiate()
 	get_parent().add_child(b)
+	b.name="Bullet"
 	b.global_position = $Barrel/BulletSpawn.global_position
 	var direction_to_mouse = self.global_position.direction_to(get_global_mouse_position()).normalized()
 	b.dir = direction_to_mouse

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://xyum05naxv6q"]
+[gd_scene load_steps=5 format=3 uid="uid://bnqbdr71yxggv"]
 
-[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_6p7h3"]
-[ext_resource type="Texture2D" uid="uid://dpimy38kb5jbo" path="res://Assets/Bullets/ball.png" id="2_4gnk2"]
+[ext_resource type="Script" path="res://Scripts/enemy_bullet.gd" id="1_6bwbr"]
+[ext_resource type="Texture2D" uid="uid://jgwg4orya45y" path="res://Assets/Bullets/enemy_ball.png" id="2_jihcd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5rk6"]
 radius = 7.0
@@ -9,13 +9,13 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_bg1lp"]
 radius = 8.0
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Eullet" type="CharacterBody2D"]
 rotation = 1.5708
-script = ExtResource("1_6p7h3")
+script = ExtResource("1_6bwbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.032, 0.032)
-texture = ExtResource("2_4gnk2")
+texture = ExtResource("2_jihcd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n5rk6")
@@ -24,5 +24,3 @@ shape = SubResource("CircleShape2D_n5rk6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_bg1lp")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

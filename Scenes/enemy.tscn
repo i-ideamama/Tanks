@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0n0mx1m3jgxf"]
+[gd_scene load_steps=6 format=3 uid="uid://0n0mx1m3jgxf"]
 
 [ext_resource type="Texture2D" uid="uid://b1ivechc0twva" path="res://Assets/Tanks/tankRed_outline.png" id="1_21ewn"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_m43hk"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhkfi"]
 size = Vector2(81, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsd0s"]
+size = Vector2(91, 82)
 
 [node name="Enemy" type="CharacterBody2D"]
 motion_mode = 1
@@ -28,6 +31,7 @@ centered = false
 offset = Vector2(-12, -12)
 
 [node name="BulletSpawn" type="Marker2D" parent="Barrel"]
+position = Vector2(56, 0)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -36,4 +40,16 @@ autostart = true
 avoidance_enabled = true
 debug_enabled = true
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_nsd0s")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

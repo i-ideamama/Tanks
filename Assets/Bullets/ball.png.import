@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy5vi4oee2deg"
-path="res://.godot/imported/bulletBeige_outline.png-9e89977b4508dd499012a4a984f21911.ctex"
+uid="uid://dpimy38kb5jbo"
+path="res://.godot/imported/ball.png-1a355172a9b149bd8d230235475fb79d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bullets/bulletBeige_outline.png"
-dest_files=["res://.godot/imported/bulletBeige_outline.png-9e89977b4508dd499012a4a984f21911.ctex"]
+source_file="res://Assets/Bullets/ball.png"
+dest_files=["res://.godot/imported/ball.png-1a355172a9b149bd8d230235475fb79d.ctex"]
 
 [params]
 
