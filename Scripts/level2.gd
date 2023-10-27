@@ -26,11 +26,12 @@ func _physics_process(_delta):
 		$Delta.target.x = ($Alpha.position.x+$Beta.position.x)/2
 		$Delta.target.y = ($Alpha.position.y+$Beta.position.y)/2
 
+#timer
 func _process(delta):
 	elapsed_time = snapped((Time.get_ticks_msec() - time)/1000.0, 0.1)
 	$CanvasLayer/Label.text = "{s} secs".format({"s": elapsed_time})
 
-
+# aggression mode for enemy tanks
 func trigger_aggression_mode():
 	if(self.has_node("Alpha")):
 		$Alpha.agg()
@@ -75,7 +76,7 @@ func win():
 	global.elapsed_time = elapsed_time
 	get_tree().change_scene_to_file("res://Scenes/end.tscn")
 	
-
+# read and write to files
 func save(content):
 	var file = FileAccess.open("user://level2_score.dat", FileAccess.WRITE)
 	file.store_string(content)

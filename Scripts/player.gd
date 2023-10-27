@@ -10,6 +10,7 @@ var bullet = load("res://Scenes/bullet.tscn")
 var explosion = load("res://Scenes/explosion.tscn")
 
 func get_input():
+	# getting input
 	rotation_dir = 0
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('right'):

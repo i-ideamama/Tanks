@@ -37,7 +37,7 @@ func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
 		return
 
-	
+	# implementing navigation
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector2 = next_path_position - current_agent_position

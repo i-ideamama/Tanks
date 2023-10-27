@@ -6,6 +6,7 @@ var bounce_count=0
 var max_bounce_count=3
 
 func _ready():
+	# adding collision exceptions
 	self.add_collision_exception_with(get_parent().get_node("Player"))
 	self.add_collision_exception_with(get_parent().get_node("Alpha"))
 	self.add_collision_exception_with(get_parent().get_node("Beta"))
@@ -18,6 +19,7 @@ func init():
 	self.rotation+=angle
 
 func _physics_process(_delta):
+	# implementing bullet reflection
 	var v = move_and_collide(speed*dir)
 	if v != null:
 		if (v.get_collider() is TileMap):
@@ -30,5 +32,6 @@ func _physics_process(_delta):
 				queue_free()
 
 func _on_area_2d_body_entered(body):
+	# making bullet disappear on collision with enemy
 	if (body.name in ["Alpha","Beta","Gamma","Delta"]):
 		queue_free()

@@ -3,6 +3,7 @@ extends Control
 @onready var global = get_node("/root/Global")
 
 func _ready():
+	# displaying text on the end screen
 	if(global.win==true):
 		if(global.high==false):
 			$Label.text="{s} secs taken to clear level".format({"s": global.elapsed_time})
