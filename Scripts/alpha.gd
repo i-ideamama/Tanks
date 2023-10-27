@@ -12,6 +12,7 @@ var current_angle
 var bullet = load("res://Scenes/enemy_bullet.tscn")
 var explosion = load("res://Scenes/explosion.tscn")
 
+var state = "PEACE"
 
 func _ready():
 	navigation_agent.path_desired_distance = 4.0
@@ -27,12 +28,11 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$Barrel.look_at(player.position)
 	if navigation_agent.is_navigation_finished():
 		return
 
-	
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector2 = next_path_position - current_agent_position
@@ -74,3 +74,8 @@ func shoot():
 	var direction_to_player = self.global_position.direction_to(target.global_position).normalized()
 	b.dir = direction_to_player
 	b.init()
+	
+	var e = explosion.instantiate()
+	e.position = pos
+	e.emitting = true
+	$Barrel.add_child(e)

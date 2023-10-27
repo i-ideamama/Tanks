@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed = 3
 var dir = Vector2.ZERO
 var bounce_count=0
-var max_bounce_count=5
+var max_bounce_count=3
 
 func _ready():
 	self.add_collision_exception_with(get_parent().get_node("Player"))

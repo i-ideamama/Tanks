@@ -27,7 +27,7 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$Barrel.look_at(player.position)
 	if navigation_agent.is_navigation_finished():
 		return
@@ -74,3 +74,8 @@ func shoot():
 	var direction_to_player = self.global_position.direction_to(target.global_position).normalized()
 	b.dir = direction_to_player
 	b.init()
+	
+	var e = explosion.instantiate()
+	e.position = pos
+	e.emitting = true
+	$Barrel.add_child(e)

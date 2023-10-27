@@ -39,4 +39,12 @@ collision_mask = 5
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_55tjv")
 
+[node name="AlphaTarget" type="Marker2D" parent="."]
+position = Vector2(0, -192)
+
+[node name="BetaTarget" type="Marker2D" parent="."]
+position = Vector2(0, 88)
+
+[node name="DeltaTarget" type="Marker2D" parent="."]
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
