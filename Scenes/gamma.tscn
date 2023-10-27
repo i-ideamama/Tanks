@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://clllwsuil2nv1"]
+[gd_scene load_steps=7 format=3 uid="uid://clllwsuil2nv1"]
 
 [ext_resource type="Script" path="res://Scripts/gamma.gd" id="1_p5ybc"]
 [ext_resource type="Texture2D" uid="uid://b226ui1rg8pr" path="res://Assets/Tanks/tankBeige_outline.png" id="2_b6qoy"]
@@ -9,6 +9,9 @@ size = Vector2(81, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsd0s"]
 size = Vector2(91, 82)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dki6"]
+radius = 303.015
 
 [node name="Gamma" type="CharacterBody2D"]
 motion_mode = 1
@@ -58,6 +61,13 @@ offset_right = 37.0
 offset_bottom = -41.0
 text = "gamma"
 
+[node name="ScaredArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaredArea"]
+shape = SubResource("CircleShape2D_0dki6")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="ScaredArea" to="." method="_on_scared_area_body_entered"]
+[connection signal="body_exited" from="ScaredArea" to="." method="_on_scared_area_body_exited"]

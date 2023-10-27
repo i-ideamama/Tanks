@@ -7,7 +7,11 @@ var max_bounce_count=3
 
 func _ready():
 	self.add_collision_exception_with(get_parent().get_node("Player"))
-	self.add_collision_exception_with(get_parent().get_node("Enemy"))
+	self.add_collision_exception_with(get_parent().get_node("Alpha"))
+	self.add_collision_exception_with(get_parent().get_node("Beta"))
+	self.add_collision_exception_with(get_parent().get_node("Gamma"))
+	self.add_collision_exception_with(get_parent().get_node("Delta"))
+	
 
 func init():
 	var angle = get_angle_to(dir)
@@ -26,5 +30,5 @@ func _physics_process(_delta):
 				queue_free()
 
 func _on_area_2d_body_entered(body):
-	if ("Enemy" in body.name):
-		print('game over')
+	if (body.name in ["Alpha","Beta","Gamma","Delta"]):
+		queue_free()

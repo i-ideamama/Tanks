@@ -1,6 +1,8 @@
 extends Node2D
 
 var corner_points = [1,2,3,4]
+var time= Time.get_ticks_msec()
+var elapsed_time
 
 func _ready():
 	corner_points[0]=$corner0.position
@@ -10,6 +12,7 @@ func _ready():
 	$Alpha.init()
 	$Beta.init()
 	$Gamma.init()
+	$Delta.init()
 	
 
 func apply_cam_shake():
@@ -20,12 +23,24 @@ func _physics_process(_delta):
 		$Delta.target.x = ($Alpha.position.x+$Beta.position.x)/2
 		$Delta.target.y = ($Alpha.position.y+$Beta.position.y)/2
 
+func _process(delta):
+	elapsed_time = snapped((Time.get_ticks_msec() - time)/1000.0, 0.1)
+	$CanvasLayer/Label.text = "{s} secs".format({"s": elapsed_time})
+
+
 func trigger_aggression_mode():
-	pass
+	if(self.has_node("Alpha")):
+		$Alpha.agg()
+	if(self.has_node("Beta")):
+		$Beta.agg()
+	if(self.has_node("Gamma")):
+		$Gamma.agg()
+	if(self.has_node("Delta")):
+		$Delta.agg()
 
 
 func _on_agg_timer_timeout():
 	$Alpha.agg()
 	$Beta.agg()
-	#$Gamma.agg()
+	$Gamma.agg()
 	$Delta.agg()

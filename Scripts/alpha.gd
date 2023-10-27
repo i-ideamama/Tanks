@@ -19,7 +19,10 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	call_deferred("actor_setup")
 	current_angle = get_angle_to(movement_target_position)
-	
+
+func init():
+	pass
+
 func actor_setup():
 	await get_tree().physics_frame
 	set_movement_target(movement_target_position)
@@ -58,6 +61,7 @@ func adj_dir():
 
 func _on_hit_box_body_entered(body):
 	if ("Bullet" in body.name):
+		get_parent().trigger_aggression_mode()
 		queue_free()
 
 
@@ -80,3 +84,7 @@ func shoot():
 	e.position = pos
 	e.emitting = true
 	$Barrel.add_child(e)
+
+func agg():
+	mode = "AGG"
+	get_parent().get_node("Player").alpha_aggression_activate()

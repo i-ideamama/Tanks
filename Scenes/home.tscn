@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://baaljgnx5rju2"]
+
+[ext_resource type="Script" path="res://Scripts/home.gd" id="1_5kiu1"]
+[ext_resource type="Texture2D" uid="uid://c1rk6uhle8qt4" path="res://Assets/title_screen.png" id="1_to24j"]
+[ext_resource type="FontFile" uid="uid://bjkitu7plpg15" path="res://Assets/AldotheApache.ttf" id="2_oykqq"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5kiu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(970.247, 544.25)
+scale = Vector2(2.11165, 2.11165)
+texture = ExtResource("1_to24j")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 16.0
+offset_right = 864.0
+offset_bottom = 224.0
+theme_override_fonts/normal_font = ExtResource("2_oykqq")
+theme_override_font_sizes/normal_font_size = 250
+text = "TANKS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 944.0
+offset_right = 1920.0
+offset_bottom = 1056.0
+alignment = 1
+
+[node name="LEVEL1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oykqq")
+theme_override_font_sizes/font_size = 40
+text = "LEVEL 1"
+
+[node name="LEVEL2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oykqq")
+theme_override_font_sizes/font_size = 40
+text = "LEVEL 2"
+
+[connection signal="pressed" from="HBoxContainer/LEVEL1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/LEVEL2" to="." method="_on_level_2_pressed"]

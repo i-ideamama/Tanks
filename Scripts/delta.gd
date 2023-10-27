@@ -19,7 +19,17 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	call_deferred("actor_setup")
 	current_angle = get_angle_to(movement_target_position)
-	
+
+func init():
+	pass
+
+func targt_bw_alpha_and_beta():
+	if(get_parent().has_node("Alpha") && get_parent().has_node("Beta")):
+		target.x = (get_parent().get_node("Alpha").global_position.x + get_parent().get_node("Beta").global_position.x)/2
+		target.y = (get_parent().get_node("Alpha").global_position.y + get_parent().get_node("Beta").global_position.y)/2
+	else:
+		set_movement_target(Vector2(randf_range(-32, 1500),randf_range(0, 800)))
+
 func actor_setup():
 	await get_tree().physics_frame
 	set_movement_target(movement_target_position)
@@ -46,7 +56,11 @@ func _physics_process(_delta):
 
 
 func _on_timer_timeout():
-	set_movement_target(target)
+	if(mode=="PEACE"):
+		set_movement_target(Vector2(randf_range(-32, 1500),randf_range(0, 800)))
+	else:
+		targt_bw_alpha_and_beta()
+		set_movement_target(target)
 	
 func dir_change(point):
 	if (get_angle_to(point)!=current_angle):
@@ -59,6 +73,7 @@ func adj_dir():
 
 func _on_hit_box_body_entered(body):
 	if ("Bullet" in body.name):
+		get_parent().trigger_aggression_mode()
 		queue_free()
 
 
@@ -81,3 +96,7 @@ func shoot():
 	e.position = pos
 	e.emitting = true
 	$Barrel.add_child(e)
+
+func agg():
+	mode = "AGG"
+	targt_bw_alpha_and_beta()

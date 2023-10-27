@@ -78,6 +78,7 @@ func adj_dir():
 
 func _on_hit_box_body_entered(body):
 	if ("Bullet" in body.name):
+		get_parent().trigger_aggression_mode()
 		queue_free()
 
 
