@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wbqscbb8q11k"]
+[gd_scene load_steps=7 format=3 uid="uid://wbqscbb8q11k"]
 
 [ext_resource type="Script" path="res://Scripts/alpha.gd" id="1_si2id"]
 [ext_resource type="Texture2D" uid="uid://b1ivechc0twva" path="res://Assets/Tanks/tankRed_outline.png" id="2_5o8ye"]
 [ext_resource type="Texture2D" uid="uid://cjag1diw1410h" path="res://Assets/Tanks/barrelRed_outline.png" id="3_6wypx"]
+[ext_resource type="AudioStream" uid="uid://dy6vsim5fqun4" path="res://Assets/boom1.wav" id="4_hvwhl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhkfi"]
 size = Vector2(81, 78)
@@ -60,6 +61,9 @@ text = "alpha"
 
 [node name="GammaFollow" type="Marker2D" parent="."]
 position = Vector2(1, -108)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hvwhl")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

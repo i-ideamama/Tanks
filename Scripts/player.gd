@@ -33,6 +33,7 @@ func _physics_process(delta):
 	$Barrel.look_at(get_global_mouse_position())
 
 func shoot():
+	$AudioStreamPlayer2D.play()
 	var pos = Vector2(60,0)
 	# bullet
 	var b = bullet.instantiate()
@@ -52,7 +53,28 @@ func shoot():
 func _on_hit_box_body_entered(body):
 	if ("Eullet" in body.name):
 		get_parent().apply_cam_shake()
-		get_parent().lose()
+		$AudioStreamPlayer2D2.play()
+		$end.start()
 
 func alpha_aggression_activate():
 	$AlphaTarget.position = Vector2(0,-112)
+
+
+func _on_end_timeout():
+	get_parent().lose()
+
+var enemies_nearby = 0
+
+func _on_area_2d_body_entered(body):
+	if((body.name=="Alpha")or(body.name=="Beta")or(body.name=="Gamma")or(body.name=="Delta")):
+		enemies_nearby+=1
+	if enemies_nearby >= 3:
+		$Normal.stop()
+		$Fast.play()
+
+func _on_area_2d_body_exited(body):
+	if((body.name=="Alpha")or(body.name=="Beta")or(body.name=="Gamma")or(body.name=="Delta")):
+		enemies_nearby-=1
+	if enemies_nearby <= 2:
+		$Normal.play()
+		$Fast.stop()

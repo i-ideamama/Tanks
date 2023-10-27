@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn6xvb84oix27"]
+[gd_scene load_steps=7 format=3 uid="uid://bn6xvb84oix27"]
 
 [ext_resource type="Script" path="res://Scripts/beta.gd" id="1_ucagq"]
 [ext_resource type="Texture2D" uid="uid://dp8m8f8wciweb" path="res://Assets/Tanks/tankGreen_outline.png" id="2_06r1s"]
 [ext_resource type="Texture2D" uid="uid://mbre6rye0brw" path="res://Assets/Tanks/barrelGreen_outline.png" id="3_q0wg6"]
+[ext_resource type="AudioStream" uid="uid://dy6vsim5fqun4" path="res://Assets/boom1.wav" id="4_p3gcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhkfi"]
 size = Vector2(81, 78)
@@ -57,6 +58,9 @@ offset_top = -70.0
 offset_right = 19.0
 offset_bottom = -45.0
 text = "beta"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_p3gcc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

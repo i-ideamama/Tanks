@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://clllwsuil2nv1"]
+[gd_scene load_steps=8 format=3 uid="uid://clllwsuil2nv1"]
 
 [ext_resource type="Script" path="res://Scripts/gamma.gd" id="1_p5ybc"]
 [ext_resource type="Texture2D" uid="uid://b226ui1rg8pr" path="res://Assets/Tanks/tankBeige_outline.png" id="2_b6qoy"]
 [ext_resource type="Texture2D" uid="uid://c20qse2j7eho8" path="res://Assets/Tanks/barrelBeige_outline.png" id="3_x6lh6"]
+[ext_resource type="AudioStream" uid="uid://dy6vsim5fqun4" path="res://Assets/boom1.wav" id="4_g2dc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhkfi"]
 size = Vector2(81, 78)
@@ -65,6 +66,9 @@ text = "gamma"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScaredArea"]
 shape = SubResource("CircleShape2D_0dki6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g2dc8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

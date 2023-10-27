@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d5n8vtwu4psq"]
+[gd_scene load_steps=7 format=3 uid="uid://d5n8vtwu4psq"]
 
 [ext_resource type="Script" path="res://Scripts/delta.gd" id="1_nq0de"]
 [ext_resource type="Texture2D" uid="uid://gdk12vffpoue" path="res://Assets/Tanks/tankBlack_outline.png" id="2_74jd5"]
 [ext_resource type="Texture2D" uid="uid://b81kptyg5wpad" path="res://Assets/Tanks/barrelBlack_outline.png" id="3_eoppy"]
+[ext_resource type="AudioStream" uid="uid://dy6vsim5fqun4" path="res://Assets/boom1.wav" id="4_ic2jc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhkfi"]
 size = Vector2(81, 78)
@@ -57,6 +58,9 @@ offset_top = -65.0
 offset_right = 21.0
 offset_bottom = -42.0
 text = "delta"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ic2jc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
