@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var movement_speed: float = 100.0
-var movement_target_position = Vector2(1500,800)
+var movement_target_position
 
 @export var player: CharacterBody2D
 @export var target: Marker2D
@@ -12,16 +12,26 @@ var current_angle
 var bullet = load("res://Scenes/enemy_bullet.tscn")
 var explosion = load("res://Scenes/explosion.tscn")
 
+var mode = "PEACE"
+
+var corner_looping_index = 0
 
 func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
 	call_deferred("actor_setup")
-	current_angle = get_angle_to(movement_target_position)
+	#current_angle = get_angle_to(movement_target_position)
+	
+func init():
+	set_movement_target(get_parent().corner_points[corner_looping_index])
+	if(corner_looping_index==3):
+		corner_looping_index=0
+	else:
+		corner_looping_index+=1
 	
 func actor_setup():
 	await get_tree().physics_frame
-	set_movement_target(movement_target_position)
+	#set_movement_target(movement_target_position)
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
@@ -30,7 +40,14 @@ func set_movement_target(movement_target: Vector2):
 func _physics_process(_delta):
 	$Barrel.look_at(player.position)
 	if navigation_agent.is_navigation_finished():
-		return
+		if(mode=="PEACE"):
+			set_movement_target(get_parent().corner_points[corner_looping_index])
+			if(corner_looping_index==3):
+				corner_looping_index=0
+			else:
+				corner_looping_index+=1
+		else:
+			return
 
 	
 	var current_agent_position: Vector2 = global_position
@@ -45,7 +62,10 @@ func _physics_process(_delta):
 
 
 func _on_timer_timeout():
-	set_movement_target(target.global_position)
+	if(mode=="PEACE"):
+		pass
+	else:
+		set_movement_target(target.global_position)
 	
 func dir_change(point):
 	if (get_angle_to(point)!=current_angle):
@@ -62,7 +82,8 @@ func _on_hit_box_body_entered(body):
 
 
 func _on_shoot_timer_timeout():
-	shoot()
+	if(mode!="PEACE"):
+		shoot()
 
 func shoot():
 	var pos = Vector2(60,0)
@@ -79,3 +100,7 @@ func shoot():
 	e.position = pos
 	e.emitting = true
 	$Barrel.add_child(e)
+
+func agg():
+	mode="AGG"
+	set_movement_target(target.global_position)

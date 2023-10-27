@@ -12,6 +12,7 @@ var current_angle
 var bullet = load("res://Scenes/enemy_bullet.tscn")
 var explosion = load("res://Scenes/explosion.tscn")
 
+var mode = "PEACE"
 
 func _ready():
 	navigation_agent.path_desired_distance = 4.0
@@ -62,7 +63,8 @@ func _on_hit_box_body_entered(body):
 
 
 func _on_shoot_timer_timeout():
-	shoot()
+	if(mode!="PEACE"):
+		shoot()
 
 func shoot():
 	var pos = Vector2(60,0)

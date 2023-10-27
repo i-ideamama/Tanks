@@ -102,7 +102,7 @@ texture_region_size = Vector2i(128, 128)
 6:3/0 = 0
 6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:3/0/physics_layer_0/angular_velocity = 0.0
-6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -15.7322, 64, -15.7322, 64, 15.4825, -64, 15.7322)
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16.1068, -0.249718, 16.1068, -64, 16.6062, -64, -16.3565)
 7:3/0 = 0
 7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:3/0/physics_layer_0/angular_velocity = 0.0
@@ -114,7 +114,7 @@ texture_region_size = Vector2i(128, 128)
 7:4/0 = 0
 7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:4/0/physics_layer_0/angular_velocity = 0.0
-7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(15.7322, -64, 15.7322, 64, -15.4825, 64, -15.7322, -64)
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.1068, 0, 16.1068, 0.249718, 16.6062, 64, -16.3565, 64)
 5:5/0 = 0
 5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:5/0/physics_layer_0/angular_velocity = 0.0
@@ -127,6 +127,14 @@ texture_region_size = Vector2i(128, 128)
 7:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:5/0/physics_layer_0/angular_velocity = 0.0
 7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16.0685, -64, 16.0685, 15.8919, -64, 16.2451, -64, -15.5388, -17.128, -15.8919, -16.0685, -64)
+8:4/0 = 0
+8:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:4/0/physics_layer_0/angular_velocity = 0.0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16.1068, 0, -16.1068, -0.249718, -16.6062, -64, 16.3565, -64)
+6:2/0 = 0
+6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:2/0/physics_layer_0/angular_velocity = 0.0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 16.1068, 0.249718, -16.1068, 64, -16.6062, 64, 16.3565)
 
 [sub_resource type="TileSet" id="TileSet_eb5pk"]
 tile_size = Vector2i(128, 128)
@@ -140,6 +148,19 @@ sources/4 = SubResource("TileSetAtlasSource_akcdp")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_bebp4")
+metadata/_edit_vertical_guides_ = [1472.0]
+
+[node name="corner0" type="Marker2D" parent="."]
+position = Vector2(336, 288)
+
+[node name="corner1" type="Marker2D" parent="."]
+position = Vector2(1408, 272)
+
+[node name="corner2" type="Marker2D" parent="."]
+position = Vector2(1344, 736)
+
+[node name="corner3" type="Marker2D" parent="."]
+position = Vector2(352, 752)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(240, 67)
@@ -153,7 +174,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(131071, 2, 0, 196607, 2, 0, 262143, 2, 0, 327679, 2, 0, 393215, 2, 0, 65546, 2, 0, 131082, 2, 0, 196618, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 458751, 2, 0, 393216, 2, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 393226, 2, 0, 327690, 2, 0, 262154, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 262147, 458756, 5, 262146, 393220, 3, 196611, 458756, 4, 131075, 458756, 3, 131074, 393220, 3, 65541, 327684, 4, 327685, 458756, 4, 262149, 458756, 4, 196613, 458756, 4, 262151, 458756, 4, 196615, 458756, 4, 131080, 393220, 3, 131079, 327684, 3, 262144, 393220, 5, 262153, 393220, 3)
+layer_1/tile_data = PackedInt32Array(131071, 2, 0, 196607, 2, 0, 262143, 2, 0, 327679, 2, 0, 393215, 2, 0, 65546, 2, 0, 131082, 2, 0, 196618, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 458751, 2, 0, 393216, 2, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 393226, 2, 0, 327690, 2, 0, 262154, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 262147, 458756, 5, 196611, 327684, 4, 131075, 458756, 3, 65541, 524292, 4, 327685, 458756, 4, 196613, 458756, 4, 131080, 393220, 3, 131079, 327684, 3, 262144, 393220, 3, 262153, 393220, 2, 131074, 393220, 2, 262146, 393220, 2, 262149, 524292, 4, 196615, 524292, 4)
 
 [node name="Player" parent="." instance=ExtResource("1_q425r")]
 position = Vector2(832, 744)
@@ -176,5 +197,12 @@ player = NodePath("../Player")
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(871, 508)
 script = ExtResource("6_y1k13")
+
+[node name="AggTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="AggTimer" to="." method="_on_agg_timer_timeout"]
 
 [editable path="Player"]
