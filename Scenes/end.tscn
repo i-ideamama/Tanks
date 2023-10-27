@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cthh206erhmmu"]
+
+[ext_resource type="Script" path="res://Scripts/end.gd" id="1_gfg8d"]
+[ext_resource type="Texture2D" uid="uid://cyy4lac3y6n2m" path="res://Assets/tank_home.png" id="2_68nnq"]
+[ext_resource type="FontFile" uid="uid://bjkitu7plpg15" path="res://Assets/AldotheApache.ttf" id="3_ny1ct"]
+
+[sub_resource type="Gradient" id="Gradient_s3ruc"]
+colors = PackedColorArray(0.660354, 0.866427, 1.15514e-06, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jl2no"]
+gradient = SubResource("Gradient_s3ruc")
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfg8d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(992, 592)
+scale = Vector2(7.75, 1184)
+texture = SubResource("GradientTexture1D_jl2no")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(944, 576)
+scale = Vector2(0.442403, 0.442403)
+texture = ExtResource("2_68nnq")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 18.0
+offset_right = 1959.0
+offset_bottom = 226.0
+theme_override_fonts/normal_font = ExtResource("3_ny1ct")
+theme_override_font_sizes/normal_font_size = 100
+text = "adfafasfadfasdfasf"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 944.0
+offset_right = 1920.0
+offset_bottom = 1056.0
+alignment = 1

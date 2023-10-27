@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk4b7q01h4ch8"]
+[gd_scene load_steps=4 format=3 uid="uid://bk4b7q01h4ch8"]
 
+[ext_resource type="Script" path="res://test.gd" id="1_1kcw0"]
 [ext_resource type="Texture2D" uid="uid://be5v8tdy5a7p2" path="res://Assets/icon.svg" id="1_lfpky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwag2"]
 size = Vector2(128, 128)
 
 [node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_1kcw0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lfpky")

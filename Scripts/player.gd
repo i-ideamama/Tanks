@@ -52,6 +52,7 @@ func shoot():
 func _on_hit_box_body_entered(body):
 	if ("Eullet" in body.name):
 		get_parent().apply_cam_shake()
+		get_parent().lose()
 
 func alpha_aggression_activate():
 	$AlphaTarget.position = Vector2(0,-112)

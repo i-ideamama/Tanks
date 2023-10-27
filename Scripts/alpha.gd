@@ -61,7 +61,9 @@ func adj_dir():
 
 func _on_hit_box_body_entered(body):
 	if ("Bullet" in body.name):
+		get_parent().enemy_count -= 1
 		get_parent().trigger_aggression_mode()
+		get_parent().check_win()
 		queue_free()
 
 

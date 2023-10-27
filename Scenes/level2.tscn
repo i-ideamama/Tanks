@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dadr7wjkig8op"]
 
-[ext_resource type="Script" path="res://Scripts/level1.gd" id="1_nxqoa"]
+[ext_resource type="Script" path="res://Scripts/level2.gd" id="1_wxrkr"]
 [ext_resource type="FontFile" uid="uid://bjkitu7plpg15" path="res://Assets/AldotheApache.ttf" id="2_cpfal"]
 [ext_resource type="Texture2D" uid="uid://dojfgmwgvwjuw" path="res://Assets/Environment/ground_tiles.png" id="3_4ju7w"]
 [ext_resource type="Texture2D" uid="uid://c6f7puww6d8s4" path="res://Assets/Environment/obstacle_tiles.png" id="4_wvhao"]
@@ -150,7 +150,7 @@ sources/4 = SubResource("TileSetAtlasSource_akcdp")
 
 [node name="World" type="Node2D"]
 scale = Vector2(0.85, 0.85)
-script = ExtResource("1_nxqoa")
+script = ExtResource("1_wxrkr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

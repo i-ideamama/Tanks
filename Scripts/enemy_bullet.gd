@@ -6,13 +6,15 @@ var bounce_count=0
 var max_bounce_count=3
 
 func _ready():
+	pass
+
+func init():
 	self.add_collision_exception_with(get_parent().get_node_or_null("Alpha"))
 	self.add_collision_exception_with(get_parent().get_node_or_null("Beta"))
 	self.add_collision_exception_with(get_parent().get_node_or_null("Gamma"))
 	self.add_collision_exception_with(get_parent().get_node_or_null("Delta"))
 	self.add_collision_exception_with(get_parent().get_node_or_null("Player"))
-
-func init():
+	
 	var angle = get_angle_to(dir)
 	self.rotation+=angle
 

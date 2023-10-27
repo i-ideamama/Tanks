@@ -61,12 +61,13 @@ func win():
 	var old_high_score = l()
 	var new_score = elapsed_time
 	
+	print('new high score')
 	
-	global.current_level = 1
+	global.current_level = 2
 	
 	if ((int(old_high_score)==0) or (new_score<int(old_high_score))):
 		save(str(new_score))
-		global.lvl1_high = str(new_score)
+		global.lvl2_high = str(new_score)
 		global.high = true
 	else:
 		global.high = false
@@ -76,10 +77,10 @@ func win():
 	
 
 func save(content):
-	var file = FileAccess.open("user://level1_score.dat", FileAccess.WRITE)
+	var file = FileAccess.open("user://level2_score.dat", FileAccess.WRITE)
 	file.store_string(content)
 
 func l():
-	var file = FileAccess.open("user://level1_score.dat", FileAccess.READ)
+	var file = FileAccess.open("user://level2_score.dat", FileAccess.READ)
 	var content = file.get_as_text()
 	return content
